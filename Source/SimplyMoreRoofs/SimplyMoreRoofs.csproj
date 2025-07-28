@@ -49,6 +49,7 @@
     <Compile Include="Patches\CompLaunchable_Patch.cs" />
     <Compile Include="Patches\Designator_AreaBuildRoof_Patch.cs" />
     <Compile Include="Patches\Designator_AreaNoRoof_Patch.cs" />
+    <Compile Include="Patches\GravshipUtility_Patch.cs" />
     <Compile Include="Patches\InfestationCellFinder_Patch.cs" />
     <Compile Include="Patches\JobDriver_RemoveRoof_Patch.cs" />
     <Compile Include="Patches\PlaceWorker_NotUnderRoof_Patch.cs" />

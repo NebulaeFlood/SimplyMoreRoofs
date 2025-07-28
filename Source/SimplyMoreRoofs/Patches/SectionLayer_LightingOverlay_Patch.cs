@@ -36,7 +36,7 @@ namespace SimplyMoreRoofs.Patches
                 {
                     yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CustomRoofUtility), nameof(CustomRoofUtility.IsLighttight), new Type[] { typeof(RoofDef) }));
                     yield return new CodeInstruction(OpCodes.Brfalse, codes[i - 2].operand);
-                    yield return new CodeInstruction(OpCodes.Ldloc_S, 28);
+                    yield return codes[i - 1];
                     yield return code;
        
                     firstPointPatched = true;
