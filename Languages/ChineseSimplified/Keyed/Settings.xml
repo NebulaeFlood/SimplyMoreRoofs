@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <!-- EN: Simply More Roofs -->
+    <SMR.Settings.Category.Label>更多屋顶</SMR.Settings.Category.Label>
+
+    <!-- EN: Prevent infestation -->
+    <SMR.Settings.PreventInfestation.Label>阻止虫灾生成</SMR.Settings.PreventInfestation.Label>
+    <!-- EN: Infestation will not spawn under roofs added by this mod. -->
+    <SMR.Settings.PreventInfestation.Tooltip>阻止虫灾在该模组添加的屋顶下生成。</SMR.Settings.PreventInfestation.Tooltip>
+
+</LanguageData>

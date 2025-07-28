@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <RoofDef>
+        <defName>SMR_SteelRoof</defName>
+        <label>steel roof</label>
+        <isThickRoof>true</isThickRoof>
+        <isNatural>false</isNatural>
+        <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+        <soundPunchThrough>Roof_Collapse</soundPunchThrough>
+
+        <modExtensions>
+            <li Class="SimplyMoreRoofs.DefModExtensions.CustomRoof">
+                <builderDef>SMR_SteelRoofBuilder</builderDef>
+                <color>(100,100,100)</color>
+            </li>
+        </modExtensions>
+    </RoofDef>
+
+    <RoofDef>
+        <defName>SMR_TransparentRoof</defName>
+        <label>transparent roof</label>
+        <isThickRoof>true</isThickRoof>
+        <isNatural>false</isNatural>
+        <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+        <soundPunchThrough>Roof_Collapse</soundPunchThrough>
+
+        <modExtensions>
+            <li Class="SimplyMoreRoofs.DefModExtensions.CustomRoof">
+                <builderDef>SMR_TransparentRoofBuilder</builderDef>
+                <color>(189,219,222)</color>
+                <isTransparent>true</isTransparent>
+            </li>
+        </modExtensions>
+    </RoofDef>
+
+</Defs>

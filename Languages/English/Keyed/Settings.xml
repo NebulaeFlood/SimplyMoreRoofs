@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <SMR.Settings.Category.Label>Simply More Roofs</SMR.Settings.Category.Label>
+
+    <SMR.Settings.PreventInfestation.Label>Prevent infestation</SMR.Settings.PreventInfestation.Label>
+    <SMR.Settings.PreventInfestation.Tooltip>Infestation will not spawn under roofs added by this mod.</SMR.Settings.PreventInfestation.Tooltip>
+
+</LanguageData>

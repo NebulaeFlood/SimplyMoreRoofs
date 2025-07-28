@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef Name="SMR_RoofBuilderBase" Abstract="True">
+        <category>Building</category>
+        <thingClass>Building</thingClass>
+
+        <clearBuildingArea>false</clearBuildingArea>
+        <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+        <rotatable>false</rotatable>
+        <selectable>true</selectable>
+
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <drawerType>MapMeshOnly</drawerType>
+        <drawStyleCategory>Areas</drawStyleCategory>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <tickerType>Never</tickerType>
+
+        <staticSunShadowHeight>1.0</staticSunShadowHeight>
+
+        <building>
+            <canPlaceOverWall>true</canPlaceOverWall>
+            <isEdifice>false</isEdifice>
+            <isInert>true</isInert>
+
+            <blueprintGraphicData>
+                <texPath>Things/Special/TerrainBlueprint</texPath>
+            </blueprintGraphicData>
+        </building>
+
+        <comps>
+            <li Class="CompProperties_Forbiddable" />
+        </comps>
+
+        <graphicData>
+            <texPath>Things/Special/TerrainBlueprint</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+
+        <statBases>
+            <WorkToBuild>270</WorkToBuild>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="SMR_RoofBuilderBase">
+        <defName>SMR_SteelRoofBuilder</defName>
+        <label>steel roof</label>
+        <description>A thick roof capable of withstanding projectiles such as mortar shells.</description>
+        <uiIconPath>UI/SMR_SteelRoof</uiIconPath>
+
+        <comps>
+            <li Class="SimplyMoreRoofs.ThingComps.Properties_AsRoofAfterBuild">
+                <roofDef>SMR_SteelRoof</roofDef>
+            </li>
+        </comps>
+
+        <costList>
+            <Steel>7</Steel>
+        </costList>
+
+        <researchPrerequisites>
+            <li>SMR_ThickRoof</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="SMR_RoofBuilderBase">
+        <defName>SMR_TransparentRoofBuilder</defName>
+        <label>trasparent roof</label>
+        <description>A transparent, thick roof capable of withstanding projectiles such as mortar shells.\n\nDespite its fragile appearance, this roof can endure severe impacts.</description>
+        <uiIconPath>UI/SMR_TransparentRoof</uiIconPath>
+
+        <comps>
+            <li Class="SimplyMoreRoofs.ThingComps.Properties_AsRoofAfterBuild">
+                <roofDef>SMR_TransparentRoof</roofDef>
+            </li>
+        </comps>
+
+        <costList>
+            <Steel>2</Steel>
+            <Plasteel>5</Plasteel>
+        </costList>
+
+        <researchPrerequisites>
+            <li>SMR_ThickRoof</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+</Defs>

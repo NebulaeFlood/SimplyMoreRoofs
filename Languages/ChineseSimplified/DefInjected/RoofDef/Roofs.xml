@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <!-- EN: steel roof -->
+    <SMR_SteelRoof.label>钢铁屋顶</SMR_SteelRoof.label>
+
+
+    <!-- EN: transparent roof -->
+    <SMR_TransparentRoof.label>透明屋顶</SMR_TransparentRoof.label>
+
+
+    <!-- EN: vac barrier roof -->
+    <SMR_VacBarrierRoof.label>屏障屋顶</SMR_VacBarrierRoof.label>
+
+
+    <!-- EN: advanced vac barrier roof -->
+    <SMR_AdvancedVacBarrierRoof.label>高级屏障屋顶</SMR_AdvancedVacBarrierRoof.label>
+
+</LanguageData>

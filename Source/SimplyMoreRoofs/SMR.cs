@@ -1,0 +1,43 @@
+﻿using HarmonyLib;
+using Nebulae.RimWorld.UI;
+using Nebulae.RimWorld.UI.Automation;
+using Nebulae.RimWorld.UI.Controls.Basic;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using Verse;
+
+namespace SimplyMoreRoofs
+{
+    public sealed class SMR : NebulaeMod<SMRSettings>
+    {
+        public const string DebugLabel = "Simply More Roof";
+
+
+        public static readonly Harmony HarmonyInstance;
+
+
+        static SMR()
+        {
+            HarmonyInstance = new Harmony("Nebulae.SimplyMoreRoofs");
+            HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
+        }
+
+        public SMR(ModContentPack content) : base(content) { }
+
+
+        public override string SettingsCategory()
+        {
+            return "SMR.Settings.Category.Label".Translate();
+        }
+
+
+        protected override Control CreateContent()
+        {
+            return Settings.GenerateLayout();
+        }
+    }
+}

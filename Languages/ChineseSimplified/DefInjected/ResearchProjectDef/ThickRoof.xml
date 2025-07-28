@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <!-- EN: thick roof -->
+    <SMR_ThickRoof.label>致密屋顶</SMR_ThickRoof.label>
+    <!-- EN: Build compacted roofs that can withstand projectiles like mortar shells. -->
+    <SMR_ThickRoof.description>解锁建造「钢铁屋顶」和「透明屋顶」。可抵御迫击炮弹等飞行物的冲击。</SMR_ThickRoof.description>
+    <!-- EN:
+    <li>subject->thick roof building</li>
+    <li>subject_story->jdeveloped reinforced roofing techniques after a meteor shower destroyed [ANYPAWN_possessive] outpost/li>
+    <li>subject_story->pioneered compacted roof construction while colonizing an asteroid belt</li>
+    <li>subject_story->mandated ultra-durable shelters when serving as chief architect of a orbital platform</li>
+    <li>subject_gerund->building thick roof</li>
+    -->
+    <SMR_ThickRoof.generalRules.rulesStrings>
+        <li>subject->致密屋顶</li>
+        <li>subject_story->在流星雨摧毁[ANYPAWN_pronoun]的前哨站后，研发了强化屋顶技术</li>
+        <li>subject_story->在殖民小行星带期间开创了致密岩层建造技术</li>
+        <li>subject_story->在担任轨道平台首席建筑师时，被强制要求建造超耐久庇护所</li>
+        <li>subject_gerund->建造致密屋顶</li>
+    </SMR_ThickRoof.generalRules.rulesStrings>
+
+</LanguageData>

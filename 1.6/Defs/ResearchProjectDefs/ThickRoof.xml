@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>SMR_ThickRoof</defName>
+        <label>thick roof</label>
+        <description>Build compacted roofs that can withstand projectiles like mortar shells.</description>
+        <baseCost>800</baseCost>
+        <techLevel>Industrial</techLevel>
+        <researchViewX>1.00</researchViewX>
+        <researchViewY>5.60</researchViewY>
+        <generalRules>
+            <rulesStrings>
+                <li>subject->thick roof building</li>
+
+                <li>subject_story->jdeveloped reinforced roofing techniques after a meteor shower destroyed [ANYPAWN_possessive] outpost</li>
+                <li>subject_story->pioneered compacted roof construction while colonizing an asteroid belt</li>
+                <li>subject_story->mandated ultra-durable shelters when serving as chief architect of a orbital platform</li>
+
+                <li>subject_gerund->building thick roof</li>
+            </rulesStrings>
+        </generalRules>
+    </ResearchProjectDef>
+
+</Defs>

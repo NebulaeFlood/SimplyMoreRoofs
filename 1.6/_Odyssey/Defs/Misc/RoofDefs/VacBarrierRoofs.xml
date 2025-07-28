@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <RoofDef>
+        <defName>SMR_VacBarrierRoof</defName>
+        <label>vac barrier roof</label>
+        <canCollapse>false</canCollapse>
+        <isThickRoof>true</isThickRoof>
+        <isNatural>false</isNatural>
+        <soundPunchThrough>EnergyShield_Broken</soundPunchThrough>
+
+        <modExtensions>
+            <li Class="SimplyMoreRoofs.DefModExtensions.CustomRoof">
+                <builderDef>SMR_VacBarrierRoofBuilder</builderDef>
+                <color>(128,217,255)</color>
+                <isTransparent>true</isTransparent>
+            </li>
+            <li Class="SimplyMoreRoofs.DefModExtensions.VacProofRoof" />
+        </modExtensions>
+    </RoofDef>
+
+    <RoofDef>
+        <defName>SMR_AdvancedVacBarrierRoof</defName>
+        <label>advanced vac barrier roof</label>
+        <canCollapse>false</canCollapse>
+        <isThickRoof>false</isThickRoof>
+        <isNatural>false</isNatural>
+        <soundPunchThrough>EnergyShield_Broken</soundPunchThrough>
+
+        <modExtensions>
+            <li Class="SimplyMoreRoofs.DefModExtensions.CustomRoof">
+                <builderDef>SMR_AdvancedVacBarrierRoofBuilder</builderDef>
+                <color>(150,255,166)</color>
+                <isTransparent>true</isTransparent>
+            </li>
+            <li Class="SimplyMoreRoofs.DefModExtensions.VacProofRoof" />
+        </modExtensions>
+    </RoofDef>
+
+</Defs>
