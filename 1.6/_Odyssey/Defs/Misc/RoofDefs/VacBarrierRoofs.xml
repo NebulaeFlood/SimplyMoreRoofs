@@ -5,7 +5,7 @@
         <defName>SMR_VacBarrierRoof</defName>
         <label>vac barrier roof</label>
         <canCollapse>false</canCollapse>
-        <isThickRoof>true</isThickRoof>
+        <isThickRoof>false</isThickRoof>
         <isNatural>false</isNatural>
         <soundPunchThrough>EnergyShield_Broken</soundPunchThrough>
 
@@ -23,7 +23,7 @@
         <defName>SMR_AdvancedVacBarrierRoof</defName>
         <label>advanced vac barrier roof</label>
         <canCollapse>false</canCollapse>
-        <isThickRoof>false</isThickRoof>
+        <isThickRoof>true</isThickRoof>
         <isNatural>false</isNatural>
         <soundPunchThrough>EnergyShield_Broken</soundPunchThrough>
 

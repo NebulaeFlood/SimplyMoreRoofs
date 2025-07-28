@@ -47,6 +47,7 @@
         <label>steel roof</label>
         <description>A thick roof capable of withstanding projectiles such as mortar shells.</description>
         <uiIconPath>UI/SMR_SteelRoof</uiIconPath>
+        <uiOrder>0</uiOrder>
 
         <comps>
             <li Class="SimplyMoreRoofs.ThingComps.Properties_AsRoofAfterBuild">
@@ -68,6 +69,7 @@
         <label>trasparent roof</label>
         <description>A transparent, thick roof capable of withstanding projectiles such as mortar shells.\n\nDespite its fragile appearance, this roof can endure severe impacts.</description>
         <uiIconPath>UI/SMR_TransparentRoof</uiIconPath>
+        <uiOrder>5</uiOrder>
 
         <comps>
             <li Class="SimplyMoreRoofs.ThingComps.Properties_AsRoofAfterBuild">

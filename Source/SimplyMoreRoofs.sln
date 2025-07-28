@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMoreRoofs", "SimplyMoreRoofs\SimplyMoreRoofs.csproj", "{83C55B8A-C303-4C8C-B701-7357BD198C62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\About\About.xml = ..\About\About.xml
+		..\LICENSE.txt = ..\LICENSE.txt
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMoreRoofs.Vehicles", "SimplyMoreRoofs.Vehicles\SimplyMoreRoofs.Vehicles.csproj", "{EAA2DA4B-974D-4D58-AD93-53B2E120D562}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,10 @@ Global
 		{83C55B8A-C303-4C8C-B701-7357BD198C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83C55B8A-C303-4C8C-B701-7357BD198C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83C55B8A-C303-4C8C-B701-7357BD198C62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAA2DA4B-974D-4D58-AD93-53B2E120D562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAA2DA4B-974D-4D58-AD93-53B2E120D562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAA2DA4B-974D-4D58-AD93-53B2E120D562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAA2DA4B-974D-4D58-AD93-53B2E120D562}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,7 @@ using Verse;
 
 namespace SimplyMoreRoofs.Utilities
 {
-    internal static class CustomRoofUtility
+    public static class CustomRoofUtility
     {
         public static bool AllowBuildRoof(this IntVec3 loc, Map map)
         {
