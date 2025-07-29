@@ -55,6 +55,7 @@
     <Compile Include="Patches\PlaceWorker_NotUnderRoof_Patch.cs" />
     <Compile Include="Patches\RoofDef_Patch.cs" />
     <Compile Include="Patches\RoofGrid_Patch.cs" />
+    <Compile Include="Patches\RoofUtility_Patch.cs" />
     <Compile Include="Patches\RoyalTitlePermitWorker_CallShuttle_Patch.cs" />
     <Compile Include="Patches\SectionLayer_LightingOverlay_Patch.cs" />
     <Compile Include="Patches\GlowGrid_Patch.cs" />

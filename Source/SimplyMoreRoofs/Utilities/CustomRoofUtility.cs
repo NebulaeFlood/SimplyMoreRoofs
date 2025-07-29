@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine.UIElements;
 using Verse;
+using static HarmonyLib.Code;
 
 namespace SimplyMoreRoofs.Utilities
 {
@@ -20,33 +21,18 @@ namespace SimplyMoreRoofs.Utilities
             {
                 for (int i = things.Count - 1; i >= 0; i--)
                 {
-                    if (things[i] is Blueprint_Build blueprint && blueprint.def.entityDefToBuild.IsLighttightRoof())
+                    if (things[i] is Blueprint_Build blueprint && blueprint.def.entityDefToBuild.IsRoofBuilder())
                     {
                         return false;
                     }
-                    else if (things[i] is Frame frame && frame.def.entityDefToBuild.IsLighttightRoof())
+                    else if (things[i] is Frame frame && frame.def.entityDefToBuild.IsRoofBuilder())
                     {
                         return false;
                     }
                 }
             }
 
-            var roofDef = map.roofGrid.RoofAt(loc);
-
-            if (roofDef is null || roofDef.modExtensions is null)
-            {
-                return true;
-            }
-
-            for (int i = roofDef.modExtensions.Count - 1; i >= 0; i--)
-            {
-                if (roofDef.modExtensions[i] is DefModExtensions.CustomRoof)
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return !map.roofGrid.RoofAt(loc).IsCustomRoof();
         }
 
         public static bool AllowFlyThrough(this RoofDef roofDef)
@@ -71,6 +57,11 @@ namespace SimplyMoreRoofs.Utilities
         {
             var roofDef = roofGrid.RoofAt(loc);
             return roofDef != null && roofDef.AllowFlyThrough();
+        }
+
+        public static bool BlockScanner(this RoofGrid roofGrid, IntVec3 loc)
+        {
+            return roofGrid.RoofAt(loc).IsCustomRoof(out var props) && props.blockScanner;
         }
 
         public static bool IsCustomRoof(this RoofDef roofDef)
@@ -114,29 +105,44 @@ namespace SimplyMoreRoofs.Utilities
 
         public static bool IsLighttight(this RoofDef roofDef)
         {
-            return !roofDef.IsCustomRoof(out var props) || !props.isTransparent;
+            if (roofDef is null)
+            {
+                return false;
+            }
+
+            if (roofDef.modExtensions is null)
+            {
+                return true;
+            }
+
+            for (int i = roofDef.modExtensions.Count - 1; i >= 0; i--)
+            {
+                if (roofDef.modExtensions[i] is DefModExtensions.CustomRoof extension)
+                {
+                    return !extension.isTransparent;
+                }
+            }
+
+            return true;
         }
 
         public static bool IsLighttight(this RoofGrid roofGrid, int index)
         {
-            var roofDef = roofGrid.RoofAt(index);
-            return roofDef != null && roofDef.IsLighttight();
+            return roofGrid.RoofAt(index).IsLighttight();
         }
 
         public static bool IsLighttight(this RoofGrid roofGrid, IntVec3 loc)
         {
-            var roofDef = roofGrid.RoofAt(loc);
-            return roofDef != null && roofDef.IsLighttight();
+            return roofGrid.RoofAt(loc).IsLighttight();
         }
 
         public static bool RoofedOpaquely(this IntVec3 loc, Map map)
         {
-            var roofDef = map.roofGrid.RoofAt(loc);
-            return roofDef != null && roofDef.IsLighttight();
+            return map.roofGrid.RoofAt(loc).IsLighttight();
         }
 
 
-        private static bool IsLighttightRoof(this BuildableDef def)
+        private static bool IsRoofBuilder(this BuildableDef def)
         {
             if (def is null)
             {

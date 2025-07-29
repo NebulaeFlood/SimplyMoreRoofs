@@ -11,6 +11,7 @@
 
         <modExtensions>
             <li Class="SimplyMoreRoofs.DefModExtensions.CustomRoof">
+                <blockScanner>false</blockScanner>
                 <builderDef>SMR_VacBarrierRoofBuilder</builderDef>
                 <color>(128,217,255)</color>
                 <isTransparent>true</isTransparent>
@@ -29,6 +30,7 @@
 
         <modExtensions>
             <li Class="SimplyMoreRoofs.DefModExtensions.CustomRoof">
+                <blockScanner>false</blockScanner>
                 <builderDef>SMR_AdvancedVacBarrierRoofBuilder</builderDef>
                 <color>(150,255,166)</color>
                 <isTransparent>true</isTransparent>

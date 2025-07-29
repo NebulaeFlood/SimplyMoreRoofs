@@ -10,6 +10,7 @@ namespace SimplyMoreRoofs.DefModExtensions
 {
     public sealed class CustomRoof : DefModExtension
     {
+        public bool blockScanner = true;
         public bool buildable = true;
         public ThingDef builderDef;
         public Color color = Color.white;
