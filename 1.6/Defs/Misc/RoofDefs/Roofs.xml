@@ -12,7 +12,7 @@
         <modExtensions>
             <li Class="SimplyMoreRoofs.DefModExtensions.CustomRoof">
                 <builderDef>SMR_SteelRoofBuilder</builderDef>
-                <color>(100,100,100)</color>
+                <color>(0,0,100)</color>
             </li>
         </modExtensions>
     </RoofDef>
