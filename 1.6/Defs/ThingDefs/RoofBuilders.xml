@@ -14,7 +14,7 @@
         <drawerType>MapMeshOnly</drawerType>
         <drawStyleCategory>Areas</drawStyleCategory>
         <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
-        <tickerType>Never</tickerType>
+        <tickerType>Normal</tickerType>
 
         <staticSunShadowHeight>1.0</staticSunShadowHeight>
 
