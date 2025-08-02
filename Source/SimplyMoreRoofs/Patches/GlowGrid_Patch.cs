@@ -13,6 +13,7 @@ using Verse;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(GlowGrid), nameof(GlowGrid.GroundGlowAt))]
+    [HarmonyAfter("ReBuildDoorsAndCornersMod")]
     internal static class GlowGrid_Patch
     {
         [HarmonyTranspiler]
