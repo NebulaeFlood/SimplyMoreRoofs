@@ -1,10 +1,4 @@
 ﻿using RimWorld;
-using SimplyMoreRoofs.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace SimplyMoreRoofs.ThingComps
@@ -19,6 +13,14 @@ namespace SimplyMoreRoofs.ThingComps
             }
         }
 
+
+        public override void CompTick()
+        {
+            if (!parent.Destroyed)
+            {
+                parent.Destroy();
+            }
+        }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -37,15 +39,6 @@ namespace SimplyMoreRoofs.ThingComps
                     map.roofCollapseBuffer.MarkToCollapse(loc);
                 }
             }
-
-            map.events.BuildingSpawned += OnSpawned;
-        }
-
-
-        private static void OnSpawned(Building building)
-        {
-            building.Map.events.BuildingSpawned -= OnSpawned;
-            building.Destroy();
         }
     }
 

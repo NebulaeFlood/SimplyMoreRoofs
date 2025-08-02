@@ -2,12 +2,7 @@
 using Nebulae.RimWorld.UI;
 using Nebulae.RimWorld.UI.Automation;
 using Nebulae.RimWorld.UI.Controls.Basic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace SimplyMoreRoofs
