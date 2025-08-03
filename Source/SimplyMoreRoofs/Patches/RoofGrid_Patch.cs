@@ -8,11 +8,15 @@ using Verse;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(RoofGrid))]
-    internal static class RoofGrid_Patch
+    public static class RoofGrid_Patch
     {
+        public static readonly Color DefaultColor = new Color(0.3f, 1f, 0.4f);
+        public static readonly Color White = Color.white;
+
+
         [HarmonyPatch(nameof(RoofGrid.Color), MethodType.Getter)]
         [HarmonyTranspiler]
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             yield return new CodeInstruction(OpCodes.Ldc_R4, 1f);
             yield return new CodeInstruction(OpCodes.Ldc_R4, 1f);
@@ -23,7 +27,7 @@ namespace SimplyMoreRoofs.Patches
 
         [HarmonyPatch(nameof(RoofGrid.GetCellExtraColor))]
         [HarmonyPostfix]
-        internal static void GetCellExtraColorPostfix(RoofDef[] ___roofGrid, int index, ref Color __result)
+        public static void GetCellExtraColorPostfix(RoofDef[] ___roofGrid, int index, ref Color __result)
         {
             if (___roofGrid[index].IsCustomRoof(out var props))
             {
@@ -38,9 +42,5 @@ namespace SimplyMoreRoofs.Patches
                 __result *= DefaultColor;
             }
         }
-
-
-        private static readonly Color DefaultColor = new Color(0.3f, 1f, 0.4f);
-        private static readonly Color White = Color.white;
     }
 }

@@ -5,10 +5,10 @@ using SimplyMoreRoofs.Utilities;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(CompLaunchable), "AnyInGroupIsUnderRoof", MethodType.Getter)]
-    internal static class CompLaunchable_Patch
+    public static class CompLaunchable_Patch
     {
         [HarmonyPostfix]
-        internal static void AnyInGroupIsUnderRoofPostfix(CompLaunchable __instance, ref bool __result)
+        public static void AnyInGroupIsUnderRoofPostfix(CompLaunchable __instance, ref bool __result)
         {
             if (!__result)
             {

@@ -6,10 +6,10 @@ using Verse;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(PlaceWorker_NotUnderRoof), nameof(PlaceWorker_NotUnderRoof.AllowsPlacing))]
-    internal static class PlaceWorker_NotUnderRoof_Patch
+    public static class PlaceWorker_NotUnderRoof_Patch
     {
         [HarmonyPostfix]
-        internal static void AllowsPlacingPostfix(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Map map, ref AcceptanceReport __result)
+        public static void AllowsPlacingPostfix(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Map map, ref AcceptanceReport __result)
         {
             if (__result.Accepted)
             {

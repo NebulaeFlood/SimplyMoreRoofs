@@ -10,10 +10,10 @@ using Verse;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(RoofUtility), nameof(RoofUtility.IsAnyCellUnderRoof))]
-    internal static class RoofUtility_Patch
+    public static class RoofUtility_Patch
     {
         [HarmonyTranspiler]
-        internal static IEnumerable<CodeInstruction> IsAnyCellUnderRoofTranspiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> IsAnyCellUnderRoofTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             bool patched = false;
             var roofedMethod = AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new Type[] { typeof(IntVec3) });

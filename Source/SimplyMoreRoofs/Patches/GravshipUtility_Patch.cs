@@ -12,10 +12,10 @@ using Verse;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(GravshipUtility), nameof(GravshipUtility.PreLaunchConfirmation))]
-    internal static class GravshipUtility_Patch
+    public static class GravshipUtility_Patch
     {
         [HarmonyTranspiler]
-        internal static IEnumerable<CodeInstruction> PreLaunchConfirmationTranspiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> PreLaunchConfirmationTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             var codes = instructions.ToArray();
             bool patched = false;

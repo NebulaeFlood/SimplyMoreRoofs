@@ -8,10 +8,10 @@ using Verse.AI;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(JobDriver_RemoveRoof), "DoEffect")]
-    internal static class JobDriver_RemoveRoof_Patch
+    public static class JobDriver_RemoveRoof_Patch
     {
         [HarmonyPrefix]
-        internal static void DoEffectPrefix(JobDriver_RemoveRoof __instance)
+        public static void DoEffectPrefix(JobDriver_RemoveRoof __instance)
         {
             var cell = __instance.job.GetTarget(TargetIndex.A).Cell;
             var map = __instance.pawn.MapHeld;

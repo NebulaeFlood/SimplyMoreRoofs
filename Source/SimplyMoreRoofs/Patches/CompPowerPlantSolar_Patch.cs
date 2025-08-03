@@ -1,27 +1,26 @@
 ﻿using HarmonyLib;
 using Nebulae.RimWorld.UI;
+using RimWorld;
 using SimplyMoreRoofs.Utilities;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Reflection.Emit;
 using Verse;
 
 namespace SimplyMoreRoofs.Patches
 {
-    [HarmonyPatch(typeof(GlowGrid), nameof(GlowGrid.GroundGlowAt))]
-    [HarmonyAfter("ReBuildDoorsAndCornersMod")]
-    public static class GlowGrid_Patch
+    [HarmonyPatch(typeof(CompPowerPlantSolar), "RoofedPowerOutputFactor", MethodType.Getter)]
+    public static class CompPowerPlantSolar_Patch
     {
         [HarmonyTranspiler]
-        public static IEnumerable<CodeInstruction> GroundGlowAtTranspiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> RoofedPowerOutputFactorTranpiler(IEnumerable<CodeInstruction> instructions)
         {
-            bool patched = false;
-            var roofedMethod = AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new Type[] { typeof(IntVec3) });
+            var patched = false;
+            var roofed = AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new Type[] { typeof(IntVec3) });
 
             foreach (var code in instructions)
             {
-                if (!patched && code.opcode == OpCodes.Callvirt && (MethodInfo)code.operand == roofedMethod)
+                if (!patched && code.Calls(roofed))
                 {
                     yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CustomRoofUtility), nameof(CustomRoofUtility.IsLighttight), new Type[] { typeof(RoofGrid), typeof(IntVec3) }));
                     patched = true;
@@ -32,7 +31,7 @@ namespace SimplyMoreRoofs.Patches
                 }
             }
 
-            SMR.DebugLabel.TranspileMessage(patched, typeof(GlowGrid), nameof(GlowGrid.GroundGlowAt));
+            SMR.DebugLabel.TranspileMessage(patched, typeof(CompPowerPlantSolar), "RoofedPowerOutputFactor");
         }
     }
 }

@@ -11,10 +11,10 @@ using Verse;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(ShipLandingArea), nameof(ShipLandingArea.RecalculateBlockingThing))]
-    internal static class ShipLandingArea_Patch
+    public static class ShipLandingArea_Patch
     {
         [HarmonyTranspiler]
-        internal static IEnumerable<CodeInstruction> RecalculateBlockingThingTranspiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> RecalculateBlockingThingTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             bool patched = false;
             var roofedMethod = AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.Roofed), new Type[] { typeof(IntVec3), typeof(Map) });

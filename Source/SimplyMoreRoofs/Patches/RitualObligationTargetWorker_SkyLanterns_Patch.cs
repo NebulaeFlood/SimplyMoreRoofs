@@ -12,10 +12,10 @@ using Verse;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(RitualObligationTargetWorker_SkyLanterns), "CanUseTargetInternal")]
-    internal static class RitualObligationTargetWorker_SkyLanterns_Patch
+    public static class RitualObligationTargetWorker_SkyLanterns_Patch
     {
         [HarmonyTranspiler]
-        internal static IEnumerable<CodeInstruction> CanUseTargetInternalTranspiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> CanUseTargetInternalTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             bool patched = false;
             var roofedMethod = AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.Roofed), new Type[] { typeof(IntVec3), typeof(Map) });

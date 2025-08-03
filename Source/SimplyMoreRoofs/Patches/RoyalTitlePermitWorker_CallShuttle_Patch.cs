@@ -12,10 +12,10 @@ using Verse;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(RoyalTitlePermitWorker_CallShuttle), "GetReportFromCell")]
-    internal static class RoyalTitlePermitWorker_CallShuttle_Patch
+    public static class RoyalTitlePermitWorker_CallShuttle_Patch
     {
         [HarmonyTranspiler]
-        internal static IEnumerable<CodeInstruction> GetReportFromCellTranspiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> GetReportFromCellTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             var codes = instructions.ToArray();
             bool patched = false;

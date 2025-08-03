@@ -47,6 +47,7 @@
     <Compile Include="Designators\RoofBuild.cs" />
     <Compile Include="Patches\BuildableDef_Patch.cs" />
     <Compile Include="Patches\CompLaunchable_Patch.cs" />
+    <Compile Include="Patches\CompPowerPlantSolar_Patch.cs" />
     <Compile Include="Patches\Designator_AreaBuildRoof_Patch.cs" />
     <Compile Include="Patches\Designator_AreaNoRoof_Patch.cs" />
     <Compile Include="Patches\GravshipUtility_Patch.cs" />

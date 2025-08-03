@@ -6,10 +6,10 @@ using Verse;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(Skyfaller), "HitRoof")]
-    internal static class Skyfaller_Patch
+    public static class Skyfaller_Patch
     {
         [HarmonyPrefix]
-        internal static bool HitRoofPrefix(Skyfaller __instance)
+        public static bool HitRoofPrefix(Skyfaller __instance)
         {
             if (!__instance.def.skyfaller.hitRoof)
             {

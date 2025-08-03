@@ -11,10 +11,10 @@ using Verse;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(SectionLayer_LightingOverlay), "GenerateLightingOverlay")]
-    internal static class SectionLayer_LightingOverlay_Patch
+    public static class SectionLayer_LightingOverlay_Patch
     {
         [HarmonyTranspiler]
-        internal static IEnumerable<CodeInstruction> GenerateLightingOverlayTranspiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> GenerateLightingOverlayTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             bool firstPointPatched = false;
             bool secondPointPatched = false;

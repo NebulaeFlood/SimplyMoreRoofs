@@ -5,10 +5,10 @@ using Verse;
 namespace SimplyMoreRoofs.Patches
 {
     [HarmonyPatch(typeof(RoofDef), nameof(RoofDef.VanishOnCollapse), MethodType.Getter)]
-    internal static class RoofDef_Patch
+    public static class RoofDef_Patch
     {
         [HarmonyPrefix]
-        internal static bool VanishOnCollapsePrefix(RoofDef __instance, ref bool __result)
+        public static bool VanishOnCollapsePrefix(RoofDef __instance, ref bool __result)
         {
             if (__instance.IsCustomRoof(out var props) && props.vanishOnCollapse)
             {

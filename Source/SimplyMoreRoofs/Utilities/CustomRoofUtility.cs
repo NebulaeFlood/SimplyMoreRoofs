@@ -96,6 +96,22 @@ namespace SimplyMoreRoofs.Utilities
             return false;
         }
 
+        public static bool IsCustomRoofBuilder(BuildableDef def)
+        {
+            if (def is ThingDef thingDef && thingDef.comps != null)
+            {
+                for (int i = thingDef.comps.Count - 1; i >= 0; i--)
+                {
+                    if (thingDef.comps[i] is Properties_AsRoofAfterBuild builderProps)
+                    {
+                        return builderProps.roofDef.IsCustomRoof(out var props) && props.buildable;
+                    }
+                }
+            }
+
+            return false;
+        }
+
         public static bool IsLighttight(this RoofDef roofDef)
         {
             if (roofDef is null)
