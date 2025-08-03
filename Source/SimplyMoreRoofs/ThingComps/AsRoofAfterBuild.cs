@@ -34,7 +34,7 @@ namespace SimplyMoreRoofs.ThingComps
                 map.roofGrid.SetRoof(loc, roofDef);
                 MoteMaker.PlaceTempRoof(loc, map);
 
-                if (roofDef.canCollapse && !RoofCollapseUtility.WithinRangeOfRoofHolder(loc, map))
+                if (!RoofCollapseUtility.WithinRangeOfRoofHolder(loc, map))
                 {
                     map.roofCollapseBuffer.MarkToCollapse(loc);
                 }

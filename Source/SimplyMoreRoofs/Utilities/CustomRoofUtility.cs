@@ -49,7 +49,7 @@ namespace SimplyMoreRoofs.Utilities
         public static bool AllowFlyThrough(this RoofGrid roofGrid, IntVec3 loc)
         {
             var roofDef = roofGrid.RoofAt(loc);
-            return roofDef != null && roofDef.AllowFlyThrough();
+            return roofDef is null || roofDef.AllowFlyThrough();
         }
 
         public static bool BlockScanner(this RoofGrid roofGrid, IntVec3 loc)

@@ -6,7 +6,7 @@ using Verse;
 namespace SimplyMoreRoofs.Vehicles.Patches
 {
     [StaticConstructorOnStartup]
-    internal static class Ext_Vehicles_Patch
+    public static class Ext_Vehicles_Patch
     {
         static Ext_Vehicles_Patch()
         {
@@ -15,7 +15,7 @@ namespace SimplyMoreRoofs.Vehicles.Patches
         }
 
 
-        internal static void IsRoofedPostfix(IntVec3 cell, Map map, ref bool __result)
+        public static void IsRoofedPostfix(IntVec3 cell, Map map, ref bool __result)
         {
             if (__result && map.roofGrid.RoofAt(cell).AllowFlyThrough())
             {

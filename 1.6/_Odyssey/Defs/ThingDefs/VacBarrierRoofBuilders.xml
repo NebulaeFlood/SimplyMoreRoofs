@@ -4,7 +4,7 @@
     <ThingDef ParentName="SMR_RoofBuilderBase">
         <defName>SMR_VacBarrierRoofBuilder</defName>
         <label>vac barrier roof</label>
-        <description>A nanomachine-composed, transparent roof that functions as a standard roof without requiring any supports while allowing aircraft passage.\n\nThese nanomachines harvest energy from all kinds of gravitational waves, requiring no external power consumption.</description>
+        <description>A nanomachine-composed, transparent roof that functions as a standard roof while allowing aircraft passage.\nRequires connection to at least one support node to maintain elevation, or the nanomachines may "go rogue".\n\nThese nanomachines harvest energy from all kinds of gravitational waves, requiring no power consumption.</description>
         <uiIconPath>UI/SMR_VacBarrierRoof</uiIconPath>
         <uiOrder>10</uiOrder>
 
@@ -26,7 +26,7 @@
     <ThingDef ParentName="SMR_RoofBuilderBase">
         <defName>SMR_AdvancedVacBarrierRoofBuilder</defName>
         <label>advanced vac barrier roof</label>
-        <description>A nanomachine-composed, transparent roof with thick roof-level durability that requires no supports and allows aircraft passage.\n\nThese nanomachines harvest energy from all kinds of gravitational waves, requiring no power consumption.</description>
+        <description>A nanomachine-composed, transparent roof with thick roof-level durability that allows aircraft passage.\nRequires connection to at least one support node to maintain elevation, or the nanomachines may "go rogue".\n\nThese nanomachines harvest energy from all kinds of gravitational waves, requiring no power consumption.</description>
         <uiIconPath>UI/SMR_AdvancedVacBarrierRoof</uiIconPath>
         <uiOrder>15</uiOrder>
 
