@@ -10,6 +10,7 @@ namespace SimplyMoreRoofs.DefModExtensions
         public ThingDef builderDef;
         public Color color = Color.white;
         public string iconPath;
+        public bool isArtificial = true;
         public bool isTransparent;
         public bool vanishOnCollapse = true;
     }

@@ -8,6 +8,9 @@ namespace SimplyMoreRoofs
     public sealed class SMRSettings : NebulaeModSettings<SMRSettings>
     {
         [BooleanEntry]
+        public bool AllowRemoveAnyRoof;
+
+        [BooleanEntry]
         public bool PreventInfestation = true;
 
 
@@ -18,6 +21,7 @@ namespace SimplyMoreRoofs
 
         public void Reset()
         {
+            AllowRemoveAnyRoof = false;
             PreventInfestation = true;
         }
     }

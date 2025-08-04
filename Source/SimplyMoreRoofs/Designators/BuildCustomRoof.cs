@@ -5,28 +5,28 @@ using Verse;
 
 namespace SimplyMoreRoofs.Designators
 {
-    internal sealed class BuildCustomRoof : Designator_Build
+    public sealed class BuildCustomRoof : Designator_Build
     {
         public BuildCustomRoof(BuildableDef entDef) : base(entDef) { }
 
 
-        public override AcceptanceReport CanDesignateCell(IntVec3 c)
+        public override AcceptanceReport CanDesignateCell(IntVec3 loc)
         {
             var map = Map;
 
-            if (!c.InBounds(Map) || c.Fogged(map))
+            if (!loc.InBounds(map) || loc.Fogged(map))
             {
                 return new AcceptanceReport("SpaceAlreadyOccupied".Translate());
             }
 
-            var roofDef = map.roofGrid.RoofAt(c);
+            var roofDef = map.roofGrid.RoofAt(loc);
 
             if (roofDef != null && roofDef.isThickRoof)
             {
                 return new AcceptanceReport("SpaceAlreadyOccupied".Translate());
             }
 
-            if (!c.AllowBuildRoof(map))
+            if (!loc.AllowBuildRoof(map))
             {
                 return new AcceptanceReport("SpaceAlreadyOccupied".Translate());
             }

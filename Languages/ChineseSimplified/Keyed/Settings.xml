@@ -4,6 +4,11 @@
     <!-- EN: Simply More Roofs -->
     <SMR.Settings.Category.Label>更多屋顶</SMR.Settings.Category.Label>
 
+    <!-- EN: Allow remove any roof -->
+    <SMR.Settings.AllowRemoveAnyRoof.Label>移除所有屋顶</SMR.Settings.AllowRemoveAnyRoof.Label>
+    <!-- EN: No roof area will work for any roof. (Need to finish research of project named thick roof.) -->
+    <SMR.Settings.AllowRemoveAnyRoof.Tooltip>允许移除屋顶区对任何屋顶生效。（需要完成对致密屋顶的研究）</SMR.Settings.AllowRemoveAnyRoof.Tooltip>
+
     <!-- EN: Prevent infestation -->
     <SMR.Settings.PreventInfestation.Label>阻止虫灾生成</SMR.Settings.PreventInfestation.Label>
     <!-- EN: Infestation will not spawn under roofs added by this mod. -->

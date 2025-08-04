@@ -7,5 +7,12 @@
             <li>SimplyMoreRoofs.Designators.RoofBuild</li>
         </value>
     </Operation>
+    
+    <Operation Class="PatchOperationReplace">
+        <xpath>Defs/DesignationCategoryDef[defName="Zone"]/specialDesignatorClasses/li[text()="Designator_AreaNoRoof"]</xpath>
+        <value>
+            <li>SimplyMoreRoofs.Designators.AreaNoAnyRoof</li>
+        </value>
+    </Operation>
 
 </Patch>
