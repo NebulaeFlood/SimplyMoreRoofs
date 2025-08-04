@@ -1,9 +1,5 @@
 ﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SimplyMoreRoofs.Utilities;
 using UnityEngine;
 using Verse;
 
@@ -66,7 +62,7 @@ namespace SimplyMoreRoofs.Designators
 
             var roofDef = map.roofGrid.RoofAt(loc);
 
-            if (roofDef != null && roofDef.isThickRoof && !AllowRemoveAnyRoof)
+            if (roofDef != null && roofDef.isThickRoof && !AllowRemoveAnyRoof && !roofDef.IsCustomRoof())
             {
                 return new AcceptanceReport("MessageNothingCanRemoveThickRoofs".Translate());
             }
