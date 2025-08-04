@@ -3,6 +3,9 @@
 
     <SMR.Settings.Category.Label>Simply More Roofs</SMR.Settings.Category.Label>
 
+    <SMR.Settings.AllowRemoveAnyRoof.Label>Allow remove any roof</SMR.Settings.AllowRemoveAnyRoof.Label>
+    <SMR.Settings.AllowRemoveAnyRoof.Tooltip>No roof area will work for any roof. (Need to finish research of project named thick roof.)</SMR.Settings.AllowRemoveAnyRoof.Tooltip>
+
     <SMR.Settings.PreventInfestation.Label>Prevent infestation</SMR.Settings.PreventInfestation.Label>
     <SMR.Settings.PreventInfestation.Tooltip>Infestation will not spawn under roofs added by this mod.</SMR.Settings.PreventInfestation.Tooltip>
 
