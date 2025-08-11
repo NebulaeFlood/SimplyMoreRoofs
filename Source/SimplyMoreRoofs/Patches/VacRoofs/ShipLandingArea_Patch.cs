@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using Verse;
 
-namespace SimplyMoreRoofs.Patches
+namespace SimplyMoreRoofs.Patches.VacRoofs
 {
     [HarmonyPatch(typeof(ShipLandingArea), nameof(ShipLandingArea.RecalculateBlockingThing))]
     public static class ShipLandingArea_Patch
@@ -17,11 +17,11 @@ namespace SimplyMoreRoofs.Patches
         public static IEnumerable<CodeInstruction> RecalculateBlockingThingTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             bool patched = false;
-            var roofedMethod = AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.Roofed), new Type[] { typeof(IntVec3), typeof(Map) });
+            var roofed = AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.Roofed), new Type[] { typeof(IntVec3), typeof(Map) });
 
             foreach (var code in instructions)
             {
-                if (!patched && code.opcode == OpCodes.Call && (MethodInfo)code.operand == roofedMethod)
+                if (!patched && code.opcode == OpCodes.Call && (MethodInfo)code.operand == roofed)
                 {
                     yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CustomRoofUtility), nameof(CustomRoofUtility.RoofedOpaquely), new Type[] { typeof(IntVec3), typeof(Map) }));
                     patched = true;

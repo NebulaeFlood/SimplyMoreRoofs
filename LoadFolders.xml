@@ -6,5 +6,6 @@
 		<li IfModActive="Ludeon.RimWorld.Odyssey">1.6/_Odyssey</li>
 		<li IfModActive="SmashPhil.VehicleFramework">1.6/_VehicleFramework</li>
 		<li IfModActive="Zal.Spaceports">1.6/_Spaceports</li>
+		<li IfModActive="TradingControl.Tad.Rimworld.Core">1.6/_TradingControl</li>
 	</v1.6>
 </loadFolders>

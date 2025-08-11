@@ -30,6 +30,11 @@ namespace SimplyMoreRoofs.Utilities
 
         public static bool AllowFlyThrough(this RoofDef roofDef)
         {
+            if (roofDef is null)
+            {
+                return true;
+            }
+
             if (roofDef.modExtensions is null)
             {
                 return false;
@@ -148,6 +153,11 @@ namespace SimplyMoreRoofs.Utilities
         public static bool RoofedOpaquely(this IntVec3 loc, Map map)
         {
             return map.roofGrid.RoofAt(loc).IsLighttight();
+        }
+
+        public static bool RoofedSolid(this IntVec3 loc, Map map)
+        {
+            return !map.roofGrid.AllowFlyThrough(loc);
         }
 
 

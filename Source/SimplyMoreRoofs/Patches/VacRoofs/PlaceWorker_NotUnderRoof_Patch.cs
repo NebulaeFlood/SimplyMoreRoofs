@@ -3,7 +3,7 @@ using RimWorld;
 using SimplyMoreRoofs.Utilities;
 using Verse;
 
-namespace SimplyMoreRoofs.Patches
+namespace SimplyMoreRoofs.Patches.VacRoofs
 {
     [HarmonyPatch(typeof(PlaceWorker_NotUnderRoof), nameof(PlaceWorker_NotUnderRoof.AllowsPlacing))]
     public static class PlaceWorker_NotUnderRoof_Patch

@@ -16,11 +16,11 @@ namespace SimplyMoreRoofs.Patches
         public static IEnumerable<CodeInstruction> IsAnyCellUnderRoofTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             bool patched = false;
-            var roofedMethod = AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new Type[] { typeof(IntVec3) });
+            var roofed = AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new Type[] { typeof(IntVec3) });
 
             foreach (var code in instructions)
             {
-                if (!patched && code.opcode == OpCodes.Callvirt && (MethodInfo)code.operand == roofedMethod)
+                if (!patched && code.opcode == OpCodes.Callvirt && (MethodInfo)code.operand == roofed)
                 {
                     yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CustomRoofUtility), nameof(CustomRoofUtility.BlockScanner), new Type[] { typeof(RoofGrid), typeof(IntVec3) }));
                     patched = true;

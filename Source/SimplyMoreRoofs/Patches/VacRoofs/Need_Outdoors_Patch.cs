@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using Verse;
 
-namespace SimplyMoreRoofs.Patches
+namespace SimplyMoreRoofs.Patches.VacRoofs
 {
     [HarmonyPatch(typeof(Need_Outdoors), nameof(Need_Outdoors.NeedInterval))]
     public static class Need_Outdoors_Patch

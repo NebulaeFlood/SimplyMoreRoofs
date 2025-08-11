@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using Verse;
 
-namespace SimplyMoreRoofs.Patches
+namespace SimplyMoreRoofs.Patches.LightSystem
 {
     [HarmonyPatch(typeof(SectionLayer_LightingOverlay), "GenerateLightingOverlay")]
     public static class SectionLayer_LightingOverlay_Patch

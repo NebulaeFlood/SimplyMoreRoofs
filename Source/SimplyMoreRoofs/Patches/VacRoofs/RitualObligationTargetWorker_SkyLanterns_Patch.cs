@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using Verse;
 
-namespace SimplyMoreRoofs.Patches
+namespace SimplyMoreRoofs.Patches.VacRoofs
 {
     [HarmonyPatch(typeof(RitualObligationTargetWorker_SkyLanterns), "CanUseTargetInternal")]
     public static class RitualObligationTargetWorker_SkyLanterns_Patch
@@ -28,7 +28,7 @@ namespace SimplyMoreRoofs.Patches
 
                 if (!patched && code.opcode == OpCodes.Call && (MethodInfo)code.operand == roofedMethod)
                 {
-                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(RitualObligationTargetWorker_SkyLanterns_Patch), nameof(CannotFlyThrough)));
+                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CustomRoofUtility), nameof(CustomRoofUtility.RoofedSolid)));
                     patched = true;
                 }
                 else
@@ -38,12 +38,6 @@ namespace SimplyMoreRoofs.Patches
             }
 
             SMR.DebugLabel.TranspileMessage(patched, typeof(RitualObligationTargetWorker_SkyLanterns), "CanUseTargetInternal");
-        }
-
-
-        private static bool CannotFlyThrough(IntVec3 loc, Map map)
-        {
-            return !map.roofGrid.AllowFlyThrough(loc);
         }
     }
 }

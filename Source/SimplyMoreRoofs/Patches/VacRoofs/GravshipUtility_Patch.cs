@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using Verse;
 
-namespace SimplyMoreRoofs.Patches
+namespace SimplyMoreRoofs.Patches.VacRoofs
 {
     [HarmonyPatch(typeof(GravshipUtility), nameof(GravshipUtility.PreLaunchConfirmation))]
     public static class GravshipUtility_Patch
@@ -17,15 +17,16 @@ namespace SimplyMoreRoofs.Patches
         [HarmonyTranspiler]
         public static IEnumerable<CodeInstruction> PreLaunchConfirmationTranspiler(IEnumerable<CodeInstruction> instructions)
         {
-            var codes = instructions.ToArray();
             bool patched = false;
-            var isThickRoofField = AccessTools.Field(typeof(RoofDef), nameof(RoofDef.isThickRoof));
+            var isThickRoof = AccessTools.Field(typeof(RoofDef), nameof(RoofDef.isThickRoof));
+
+            var codes = instructions.ToArray();
 
             for (int i = 0; i < codes.Length; i++)
             {
                 var code = codes[i];
 
-                if (!patched && code.opcode == OpCodes.Ldfld && (FieldInfo)code.operand == isThickRoofField)
+                if (!patched && code.opcode == OpCodes.Ldfld && (FieldInfo)code.operand == isThickRoof)
                 {
                     yield return code;
 

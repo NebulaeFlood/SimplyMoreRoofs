@@ -2,7 +2,7 @@
 using RimWorld;
 using SimplyMoreRoofs.Utilities;
 
-namespace SimplyMoreRoofs.Patches
+namespace SimplyMoreRoofs.Patches.VacRoofs
 {
     [HarmonyPatch(typeof(CompLaunchable), "AnyInGroupIsUnderRoof", MethodType.Getter)]
     public static class CompLaunchable_Patch

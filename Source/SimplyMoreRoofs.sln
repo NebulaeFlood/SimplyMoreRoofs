@@ -10,12 +10,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		..\.gitignore = ..\.gitignore
 		..\About\About.xml = ..\About\About.xml
 		..\LICENSE.txt = ..\LICENSE.txt
+		..\LoadFolders.xml = ..\LoadFolders.xml
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMoreRoofs.Vehicles", "SimplyMoreRoofs.Vehicles\SimplyMoreRoofs.Vehicles.csproj", "{EAA2DA4B-974D-4D58-AD93-53B2E120D562}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMoreRoofs.Spaceports", "SimplyMoreRoofs.Spaceports\SimplyMoreRoofs.Spaceports.csproj", "{31532106-DBE6-49E4-AA9D-C191F7E778D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyMoreRoofs.TradingControl", "SimplyMoreRoofs.TradingControl\SimplyMoreRoofs.TradingControl.csproj", "{F9028D6E-3CC4-4442-8F5A-B2908C389DD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +38,10 @@ Global
 		{31532106-DBE6-49E4-AA9D-C191F7E778D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31532106-DBE6-49E4-AA9D-C191F7E778D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31532106-DBE6-49E4-AA9D-C191F7E778D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9028D6E-3CC4-4442-8F5A-B2908C389DD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9028D6E-3CC4-4442-8F5A-B2908C389DD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9028D6E-3CC4-4442-8F5A-B2908C389DD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9028D6E-3CC4-4442-8F5A-B2908C389DD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

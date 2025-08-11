@@ -21,7 +21,7 @@ namespace SimplyMoreRoofs.Patches
 
             foreach (var cell in occupiedRect.Cells)
             {
-                if (cell.InBounds(map) && map.roofGrid.IsLighttight(cell))
+                if (cell.InBounds(map) && !map.roofGrid.AllowFlyThrough(cell))
                 {
                     return true;
                 }
