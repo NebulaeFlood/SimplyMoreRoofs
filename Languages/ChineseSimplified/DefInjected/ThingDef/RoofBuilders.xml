@@ -10,18 +10,18 @@
     <!-- EN: transparent roof -->
     <SMR_TransparentRoofBuilder.label>透明屋顶</SMR_TransparentRoofBuilder.label>
     <!-- EN: A transparent, thick roof capable of withstanding projectiles such as mortar shells.\n\nDespite its fragile appearance, this roof can endure severe impacts. -->
-    <SMR_TransparentRoofBuilder.description>一种透明的致密屋顶，在抵御迫击炮弹等飞行物。\n\n透明的屋顶看似脆弱，实则能够抵御强烈的冲击。</SMR_TransparentRoofBuilder.description>
+    <SMR_TransparentRoofBuilder.description>一种透明的致密屋顶，能够抵御迫击炮弹等飞行物。\n\n透明的屋顶看似脆弱，实则能够抵御强烈的冲击。</SMR_TransparentRoofBuilder.description>
 
 
     <!-- EN: vac barrier roof -->
     <SMR_VacBarrierRoofBuilder.label>屏障屋顶</SMR_VacBarrierRoofBuilder.label>
-    <!-- EN: A nanomachine-composed, transparent roof that functions as a standard roof while allowing aircraft passage.\nRequires connection to at least one support node to maintain elevation, or the nanomachines may "go rogue".\n\nThese nanomachines harvest energy from all kinds of gravitational waves, requiring no power consumption. -->
-    <SMR_VacBarrierRoofBuilder.description>一种由纳米机械组成的透明屋顶，既可作为普通屋顶使用，又可被飞行器穿过。\n\n为了保持高度，需要有至少一处支撑点，不然你就可以见到组成屋顶的纳米机械集体“离家出走”\n\n这种纳米机械可以从各种引力波中提取能量，无需消耗任何外部电力。</SMR_VacBarrierRoofBuilder.description>
+    <!-- EN: A nanomachine-composed, transparent roof that functions as a standard roof while allowing aircraft and projectiles passage.\nRequires connection to at least one support node to maintain elevation, or the nanomachines may "go rogue".\n\nThese nanomachines harvest energy from all kinds of gravitational waves, requiring no power consumption. -->
+    <SMR_VacBarrierRoofBuilder.description>一种由纳米机械组成的透明屋顶，既可作为普通屋顶使用，又可被飞行物穿过。\n\n为了保持高度，需要有至少一处支撑点，不然你就可以见到组成屋顶的纳米机械集体“离家出走”\n\n这种纳米机械可以从各种引力波中提取能量，无需消耗任何外部电力。</SMR_VacBarrierRoofBuilder.description>
 
 
     <!-- EN: advanced vac barrier roof -->
     <SMR_AdvancedVacBarrierRoofBuilder.label>高级屏障屋顶</SMR_AdvancedVacBarrierRoofBuilder.label>
-    <!-- EN: A nanomachine-composed, transparent roof with thick roof-level durability that allows aircraft passage.\nRequires connection to at least one support node to maintain elevation, or the nanomachines may "go rogue".\n\nThese nanomachines harvest energy from all kinds of gravitational waves, requiring no power consumption. -->
+    <!-- EN: A nanomachine-composed, transparent roof with thick roof-level durability that allows aircraft and projectiles passage.\nRequires connection to at least one support node to maintain elevation, or the nanomachines may "go rogue".\n\nThese nanomachines harvest energy from all kinds of gravitational waves, requiring no power consumption. -->
     <SMR_AdvancedVacBarrierRoofBuilder.description>一种由纳米机械组成的透明屋顶，既可作为致密屋顶使用，又可被飞行器穿过。\n\n为了保持高度，需要有至少一处支撑点，不然你就可以见到组成屋顶的纳米机械集体“离家出走”\n\n这种纳米机械可以从各种引力波中提取能量，因此无需消耗任何电力。</SMR_AdvancedVacBarrierRoofBuilder.description>
 
 </LanguageData>
