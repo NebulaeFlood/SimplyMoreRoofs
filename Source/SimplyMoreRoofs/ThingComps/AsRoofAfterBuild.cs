@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using SimplyMoreRoofs.Utilities;
 using Verse;
 
 namespace SimplyMoreRoofs.ThingComps
@@ -18,26 +19,41 @@ namespace SimplyMoreRoofs.ThingComps
         {
             if (!parent.Destroyed)
             {
-                parent.Destroy();
-            }
-        }
+                var loc = parent.Position;
+                var map = parent.Map;
 
-        public override void PostSpawnSetup(bool respawningAfterLoad)
-        {
-            var loc = parent.Position;
-            var map = parent.Map;
+                var roofDef = Props.roofDef;
 
-            var roofDef = Props.roofDef;
-
-            if (roofDef != parent.Map.roofGrid.RoofAt(parent.Position))
-            {
-                map.roofGrid.SetRoof(loc, roofDef);
-                MoteMaker.PlaceTempRoof(loc, map);
-
-                if (!RoofCollapseUtility.WithinRangeOfRoofHolder(loc, map))
+                if (roofDef.AllowFlyAway())
+                {
+                    if (!RoofCollapseUtility.ConnectedToRoofHolder(loc, map, true))
+                    {
+                        if (CustomRoofUtility.AllowSendRoofFlewLetter())
+                        {
+                            Find.LetterStack.ReceiveLetter(
+                                "SMR.Letters.RoofFlewAway.Label".Translate(),
+                                "SMR.Letters.RoofFlewAway.Text".Translate(),
+                                SMRDefOf.SMR_RoofFlewAway,
+                                new TargetInfo(loc, map));
+                        }
+                    }
+                    else
+                    {
+                        map.roofGrid.SetRoof(loc, roofDef);
+                        MoteMaker.PlaceTempRoof(loc, map);
+                    }
+                }
+                else if (!RoofCollapseUtility.WithinRangeOfRoofHolder(loc, map))
                 {
                     map.roofCollapseBuffer.MarkToCollapse(loc);
                 }
+                else
+                {
+                    map.roofGrid.SetRoof(loc, roofDef);
+                    MoteMaker.PlaceTempRoof(loc, map);
+                }
+
+                parent.Destroy();
             }
         }
     }

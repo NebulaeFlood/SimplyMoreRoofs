@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <!-- EN: Roof flew away -->
+    <SMR.Letters.RoofFlewAway.Label>屋顶飘离</SMR.Letters.RoofFlewAway.Label>
+    <!-- EN: A section of nanomachine-composed roofs dispersed after having no anchor points. -->
+    <SMR.Letters.RoofFlewAway.Text>一片区域的微械屋顶因没有任何支撑飘走了。</SMR.Letters.RoofFlewAway.Text>
+
+</LanguageData>

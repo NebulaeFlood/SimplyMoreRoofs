@@ -14,4 +14,9 @@
     <!-- EN: Infestation will not spawn under roofs added by this mod. -->
     <SMR.Settings.PreventInfestation.Tooltip>阻止虫灾在该模组添加的屋顶下生成。</SMR.Settings.PreventInfestation.Tooltip>
 
+    <!-- EN: Saperate designators -->
+    <SMR.Settings.SaperateRoofDesignators.Label>拆分屋顶区按钮</SMR.Settings.SaperateRoofDesignators.Label>
+    <!-- EN: Saperate build roof area from roofs added by this mod. -->
+    <SMR.Settings.SaperateRoofDesignators.Tooltip>将建造菜单中的建造屋顶区和 Mod 添加的屋顶拆分。</SMR.Settings.SaperateRoofDesignators.Tooltip>
+
 </LanguageData>

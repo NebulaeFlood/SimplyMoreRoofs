@@ -9,4 +9,7 @@
     <SMR.Settings.PreventInfestation.Label>Prevent infestation</SMR.Settings.PreventInfestation.Label>
     <SMR.Settings.PreventInfestation.Tooltip>Infestation will not spawn under roofs added by this mod.</SMR.Settings.PreventInfestation.Tooltip>
 
+    <SMR.Settings.SaperateRoofDesignators.Label>Saperate designators</SMR.Settings.SaperateRoofDesignators.Label>
+    <SMR.Settings.SaperateRoofDesignators.Tooltip>Saperate build roof area from roofs added by this mod.</SMR.Settings.SaperateRoofDesignators.Tooltip>
+
 </LanguageData>

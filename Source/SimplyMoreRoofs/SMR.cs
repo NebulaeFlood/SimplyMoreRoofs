@@ -2,6 +2,7 @@
 using Nebulae.RimWorld.UI;
 using Nebulae.RimWorld.UI.Automation;
 using Nebulae.RimWorld.UI.Controls.Basic;
+using SimplyMoreRoofs.Utilities;
 using System.Reflection;
 using Verse;
 
@@ -33,6 +34,28 @@ namespace SimplyMoreRoofs
         protected override Control CreateContent()
         {
             return Settings.GenerateLayout();
+        }
+
+        protected override void OnInitializing()
+        {
+            if (Settings.SaperateRoofDesignators)
+            {
+                CustomRoofDesignatorUtility.SeperateDesignators();
+            }
+        }
+
+        public override void WriteSettings()
+        {
+            base.WriteSettings();
+
+            if (Settings.SaperateRoofDesignators)
+            {
+                CustomRoofDesignatorUtility.SeperateDesignators();
+            }
+            else
+            {
+                CustomRoofDesignatorUtility.MergeDesignators();
+            }
         }
     }
 }

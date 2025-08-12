@@ -4,8 +4,12 @@ using Verse;
 namespace SimplyMoreRoofs
 {
     [DefOf]
-    internal static class SMRDefOf
+    public static class SMRDefOf
     {
+        public static readonly DesignatorDropdownGroupDef SMR_CustomRoofGroup;
+
+        public static readonly LetterDef SMR_RoofFlewAway;
+
         public static readonly ResearchProjectDef SMR_ThickRoof;
 
 

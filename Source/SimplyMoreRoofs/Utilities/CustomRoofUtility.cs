@@ -1,5 +1,7 @@
 ﻿using RimWorld;
 using SimplyMoreRoofs.ThingComps;
+using System;
+using UnityEngine;
 using Verse;
 
 namespace SimplyMoreRoofs.Utilities
@@ -26,6 +28,11 @@ namespace SimplyMoreRoofs.Utilities
             }
 
             return !map.roofGrid.RoofAt(loc).IsCustomRoof();
+        }
+
+        public static bool AllowFlyAway(this RoofDef roofDef)
+        {
+            return roofDef != null && !roofDef.canCollapse && roofDef.AllowFlyThrough();
         }
 
         public static bool AllowFlyThrough(this RoofDef roofDef)
@@ -55,6 +62,24 @@ namespace SimplyMoreRoofs.Utilities
         {
             var roofDef = roofGrid.RoofAt(loc);
             return roofDef is null || roofDef.AllowFlyThrough();
+        }
+
+        public static bool AllowSendRoofFlewLetter()
+        {
+            var time = Time.time;
+            var letters = Find.LetterStack.LettersListForReading;
+
+            for (int i = letters.Count - 1; i >= 0; i--)
+            {
+                var letter = letters[i];
+
+                if (letter.def == SMRDefOf.SMR_RoofFlewAway && MathF.Abs(letter.arrivalTime - time) < 0.45f)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public static bool BlockScanner(this RoofGrid roofGrid, IntVec3 loc)

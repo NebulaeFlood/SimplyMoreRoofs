@@ -47,6 +47,7 @@
     <Compile Include="Designators\RemoveAnyRoof.cs" />
     <Compile Include="Designators\RoofBuild.cs" />
     <Compile Include="Patches\BuildableDef_Patch.cs" />
+    <Compile Include="Patches\RoofCollapseBufferResolver_Patch.cs" />
     <Compile Include="Patches\VacRoofs\Building_TurretGun_Patch.cs" />
     <Compile Include="Patches\VacRoofs\CompLaunchable_Patch.cs" />
     <Compile Include="Patches\CompPowerPlantSolar_Patch.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="SMRDefOf.cs" />
     <Compile Include="SMRSettings.cs" />
     <Compile Include="ThingComps\AsRoofAfterBuild.cs" />
+    <Compile Include="Utilities\CustomRoofDesignatorUtility.cs" />
     <Compile Include="Utilities\CustomRoofUtility.cs" />
   </ItemGroup>
   <ItemGroup>
