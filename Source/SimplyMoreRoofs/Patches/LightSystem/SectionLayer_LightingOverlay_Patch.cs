@@ -19,8 +19,8 @@ namespace SimplyMoreRoofs.Patches.LightSystem
             bool firstPointPatched = false;
             bool secondPointPatched = false;
 
-            var isThickRoofField = AccessTools.Field(typeof(RoofDef), nameof(RoofDef.isThickRoof));
-            var roofedMethod = AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new Type[] { typeof(int) });
+            var isThickRoof = AccessTools.Field(typeof(RoofDef), nameof(RoofDef.isThickRoof));
+            var roofed = AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new Type[] { typeof(int) });
 
             var codes = instructions.ToArray();
 
@@ -28,7 +28,7 @@ namespace SimplyMoreRoofs.Patches.LightSystem
             {
                 var code = codes[i];
 
-                if (!firstPointPatched && code.opcode == OpCodes.Ldfld && (FieldInfo)code.operand == isThickRoofField)
+                if (!firstPointPatched && code.opcode == OpCodes.Ldfld && (FieldInfo)code.operand == isThickRoof)
                 {
                     yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CustomRoofUtility), nameof(CustomRoofUtility.IsLighttight), new Type[] { typeof(RoofDef) }));
                     yield return new CodeInstruction(OpCodes.Brfalse, codes[i - 2].operand);
@@ -37,7 +37,7 @@ namespace SimplyMoreRoofs.Patches.LightSystem
 
                     firstPointPatched = true;
                 }
-                else if (!secondPointPatched && code.opcode == OpCodes.Callvirt && (MethodInfo)code.operand == roofedMethod)
+                else if (!secondPointPatched && code.Calls(roofed))
                 {
                     yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CustomRoofUtility), nameof(CustomRoofUtility.IsLighttight), new Type[] { typeof(RoofGrid), typeof(int) }));
 

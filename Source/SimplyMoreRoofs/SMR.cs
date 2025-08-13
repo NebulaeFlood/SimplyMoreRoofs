@@ -38,9 +38,9 @@ namespace SimplyMoreRoofs
 
         protected override void OnInitializing()
         {
-            if (Settings.SaperateRoofDesignators)
+            if (Settings.SeparateRoofDesignators)
             {
-                CustomRoofDesignatorUtility.SeperateDesignators();
+                CustomRoofDesignatorUtility.SeparateDesignators();
             }
         }
 
@@ -48,9 +48,9 @@ namespace SimplyMoreRoofs
         {
             base.WriteSettings();
 
-            if (Settings.SaperateRoofDesignators)
+            if (Settings.SeparateRoofDesignators)
             {
-                CustomRoofDesignatorUtility.SeperateDesignators();
+                CustomRoofDesignatorUtility.SeparateDesignators();
             }
             else
             {

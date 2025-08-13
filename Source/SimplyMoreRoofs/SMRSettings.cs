@@ -12,21 +12,21 @@ namespace SimplyMoreRoofs
         [BooleanEntry]
         public bool PreventInfestation = true;
         [BooleanEntry]
-        public bool SaperateRoofDesignators = false;
+        public bool SeparateRoofDesignators = false;
 
 
         public override void ExposeData()
         {
             Scribe_Values.Look(ref AllowRemoveAnyRoof, nameof(AllowRemoveAnyRoof), defaultValue: false);
             Scribe_Values.Look(ref PreventInfestation, nameof(PreventInfestation), defaultValue: true);
-            Scribe_Values.Look(ref SaperateRoofDesignators, nameof(SaperateRoofDesignators), defaultValue: false);
+            Scribe_Values.Look(ref SeparateRoofDesignators, nameof(SeparateRoofDesignators), defaultValue: false);
         }
 
         public void Reset()
         {
             AllowRemoveAnyRoof = false;
             PreventInfestation = true;
-            SaperateRoofDesignators = false;
+            SeparateRoofDesignators = false;
         }
     }
 }

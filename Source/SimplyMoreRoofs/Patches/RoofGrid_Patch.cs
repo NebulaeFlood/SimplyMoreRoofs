@@ -16,7 +16,7 @@ namespace SimplyMoreRoofs.Patches
 
         [HarmonyPatch(nameof(RoofGrid.Color), MethodType.Getter)]
         [HarmonyTranspiler]
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> ColorTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             yield return new CodeInstruction(OpCodes.Ldc_R4, 1f);
             yield return new CodeInstruction(OpCodes.Ldc_R4, 1f);

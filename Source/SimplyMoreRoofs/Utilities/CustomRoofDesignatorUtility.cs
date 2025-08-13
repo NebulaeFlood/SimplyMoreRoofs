@@ -23,7 +23,7 @@ namespace SimplyMoreRoofs.Utilities
             DesignationCategoryDefOf.Zone.ResolveReferences();
         }
 
-        public static void SeperateDesignators()
+        public static void SeparateDesignators()
         {
             foreach (var roofDef in DefDatabase<RoofDef>.AllDefs)
             {
