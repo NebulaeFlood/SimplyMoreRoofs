@@ -87,7 +87,7 @@ namespace SimplyMoreRoofs.Designators
         {
             if (!_selectedDesignator.Visible)
             {
-                _selectedDesignator = Designators[0];
+                Select(Designators[0]);
             }
 
             return base.GizmoOnGUIInt(butRect, parms);
@@ -129,6 +129,14 @@ namespace SimplyMoreRoofs.Designators
         #endregion
 
 
+        //------------------------------------------------------
+        //
+        //  Private Methods
+        //
+        //------------------------------------------------------
+
+        #region Private Methods
+
         private IEnumerable<FloatMenuOption> CreateMenuOptions(Event ev)
         {
             for (int i = 0; i < Designators.Length; i++)
@@ -141,21 +149,27 @@ namespace SimplyMoreRoofs.Designators
                     {
                         base.ProcessInput(ev);
                         Find.DesignatorManager.Select(designator);
-
-                        icon = designator.icon;
-                        iconDrawScale = designator.iconDrawScale;
-                        iconProportions = designator.iconProportions;
-                        iconTexCoords = designator.iconTexCoords;
-                        iconAngle = designator.iconAngle;
-                        iconOffset = designator.iconOffset;
-
-                        _selectedDesignator = designator;
+                        Select(designator);
                     }
 
                     yield return new FloatMenuOption(designator.LabelCap, OnSelected, (Texture2D)designator.icon, designator.IconDrawColor);
                 }
             }
         }
+
+        private void Select(Designator designator)
+        {
+            icon = designator.icon;
+            iconDrawScale = designator.iconDrawScale;
+            iconProportions = designator.iconProportions;
+            iconTexCoords = designator.iconTexCoords;
+            iconAngle = designator.iconAngle;
+            iconOffset = designator.iconOffset;
+
+            _selectedDesignator = designator;
+        }
+
+        #endregion
 
 
         private static readonly Designator[] Designators;
