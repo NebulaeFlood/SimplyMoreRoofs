@@ -83,6 +83,17 @@ namespace SimplyMoreRoofs.Designators
         #endregion
 
 
+        protected override GizmoResult GizmoOnGUIInt(Rect butRect, GizmoRenderParms parms)
+        {
+            if (!_selectedDesignator.Visible)
+            {
+                _selectedDesignator = Designators[0];
+            }
+
+            return base.GizmoOnGUIInt(butRect, parms);
+        }
+
+
         //------------------------------------------------------
         //
         //  Private Static Methods

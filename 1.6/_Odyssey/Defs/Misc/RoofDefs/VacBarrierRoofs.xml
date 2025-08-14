@@ -11,12 +11,12 @@
 
         <modExtensions>
             <li Class="SimplyMoreRoofs.DefModExtensions.CustomRoof">
+                <allowFlyThrough>true</allowFlyThrough>
                 <blockScanner>false</blockScanner>
                 <builderDef>SMR_VacBarrierRoofBuilder</builderDef>
                 <color>(128,217,255)</color>
                 <isTransparent>true</isTransparent>
             </li>
-            <li Class="SimplyMoreRoofs.DefModExtensions.VacProofRoof" />
         </modExtensions>
     </RoofDef>
 
@@ -30,12 +30,12 @@
 
         <modExtensions>
             <li Class="SimplyMoreRoofs.DefModExtensions.CustomRoof">
+                <allowFlyThrough>true</allowFlyThrough>
                 <blockScanner>false</blockScanner>
                 <builderDef>SMR_AdvancedVacBarrierRoofBuilder</builderDef>
                 <color>(150,255,166)</color>
                 <isTransparent>true</isTransparent>
             </li>
-            <li Class="SimplyMoreRoofs.DefModExtensions.VacProofRoof" />
         </modExtensions>
     </RoofDef>
 

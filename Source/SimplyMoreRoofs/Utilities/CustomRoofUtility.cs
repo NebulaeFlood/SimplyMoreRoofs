@@ -37,31 +37,12 @@ namespace SimplyMoreRoofs.Utilities
 
         public static bool AllowFlyThrough(this RoofDef roofDef)
         {
-            if (roofDef is null)
-            {
-                return true;
-            }
-
-            if (roofDef.modExtensions is null)
-            {
-                return false;
-            }
-
-            for (int i = roofDef.modExtensions.Count - 1; i >= 0; i--)
-            {
-                if (roofDef.modExtensions[i] is DefModExtensions.VacProofRoof)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return roofDef is null || (roofDef.IsCustomRoof(out var props) && props.allowFlyThrough);
         }
 
         public static bool AllowFlyThrough(this RoofGrid roofGrid, IntVec3 loc)
         {
-            var roofDef = roofGrid.RoofAt(loc);
-            return roofDef is null || roofDef.AllowFlyThrough();
+            return roofGrid.RoofAt(loc).AllowFlyThrough();
         }
 
         public static bool AllowSendRoofFlewLetter()
@@ -123,22 +104,6 @@ namespace SimplyMoreRoofs.Utilities
             }
 
             props = null;
-            return false;
-        }
-
-        public static bool IsCustomRoofBuilder(BuildableDef def)
-        {
-            if (def is ThingDef thingDef && thingDef.comps != null)
-            {
-                for (int i = thingDef.comps.Count - 1; i >= 0; i--)
-                {
-                    if (thingDef.comps[i] is Properties_AsRoofAfterBuild builderProps)
-                    {
-                        return builderProps.roofDef.IsCustomRoof(out var props) && props.buildable;
-                    }
-                }
-            }
-
             return false;
         }
 

@@ -5,6 +5,7 @@ namespace SimplyMoreRoofs.DefModExtensions
 {
     public sealed class CustomRoof : DefModExtension
     {
+        public bool allowFlyThrough;
         public bool blockScanner = true;
         public bool buildable = true;
         public ThingDef builderDef;

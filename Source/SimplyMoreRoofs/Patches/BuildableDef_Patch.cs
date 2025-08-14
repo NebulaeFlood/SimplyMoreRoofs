@@ -1,5 +1,5 @@
 ﻿using HarmonyLib;
-using SimplyMoreRoofs.Utilities;
+using SimplyMoreRoofs.ThingComps;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using Verse;
@@ -21,8 +21,25 @@ namespace SimplyMoreRoofs.Patches
             yield return new CodeInstruction(OpCodes.Ldc_I4_1);
             yield return new CodeInstruction(OpCodes.Ret);
             yield return new CodeInstruction(OpCodes.Ldarg_0).WithLabels(label);
-            yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CustomRoofUtility), nameof(CustomRoofUtility.IsCustomRoofBuilder)));
+            yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(BuildableDef_Patch), nameof(IsCustomRoofBuilder)));
             yield return new CodeInstruction(OpCodes.Ret);
+        }
+
+
+        public static bool IsCustomRoofBuilder(BuildableDef def)
+        {
+            if (def is ThingDef thingDef && thingDef.comps != null)
+            {
+                for (int i = thingDef.comps.Count - 1; i >= 0; i--)
+                {
+                    if (thingDef.comps[i] is Properties_AsRoofAfterBuild)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }
