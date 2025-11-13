@@ -40,14 +40,12 @@ namespace SimplyMoreRoofs.Patches.VacRoofs
         {
             var roofDef = map.roofGrid.RoofAt(loc);
 
-            if (roofDef.AllowFlyThrough())
-            {
-                return canRoofPunch ? roofDef : null;
-            }
-            else
+            if (canRoofPunch)
             {
                 return roofDef;
             }
+
+            return roofDef.AllowFlyThrough() ? null : roofDef;
         }
     }
 }

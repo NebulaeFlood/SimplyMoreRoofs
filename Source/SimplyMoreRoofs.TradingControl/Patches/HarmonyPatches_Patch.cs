@@ -1,11 +1,7 @@
 ﻿using HarmonyLib;
-using Nebulae.RimWorld.UI;
+using RimWorld;
 using SimplyMoreRoofs.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using TradingControl.Harmonize;
+using TradingControl.functions;
 using Verse;
 
 namespace SimplyMoreRoofs.TradingControl.Patches
@@ -15,35 +11,102 @@ namespace SimplyMoreRoofs.TradingControl.Patches
     {
         static HarmonyPatches_Patch()
         {
-            new Harmony("Nebulae.SimplyMoreRoofs.TradingControl").Patch(AccessTools.Method(typeof(HarmonyPatches), nameof(HarmonyPatches.CustomTradeDropSpot)),
-                transpiler: new HarmonyMethod(typeof(HarmonyPatches_Patch), nameof(CustomTradeDropSpotTranspiler)));
+            new Harmony("Nebulae.SimplyMoreRoofs.TradingControl").Patch(AccessTools.Method(typeof(OrbitDropSpot), nameof(OrbitDropSpot.AnyAdjacentGoodDropSpot)),
+                prefix: new HarmonyMethod(typeof(HarmonyPatches_Patch), nameof(AnyAdjacentGoodDropSpotPrefix)));
         }
 
 
-        public static IEnumerable<CodeInstruction> CustomTradeDropSpotTranspiler(IEnumerable<CodeInstruction> instructions)
+        public static bool AnyAdjacentGoodDropSpotPrefix(IntVec3 c, Map map, ref bool __result)
         {
-            bool patched = false;
-            var roofed = AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new Type[] { typeof(IntVec3) });
-
-            var codes = instructions.ToArray();
-
-            for (int i = 0; i < codes.Length; i++)
+            if (CanDropPod(c, map))
             {
-                var code = codes[i];
+                __result = true;
+                return false;
+            }
 
-                if (!patched && code.Calls(roofed))
+            return true;
+        }
+
+        public static bool CanDropPod(IntVec3 loc, Map map)
+        {
+            var locs = new IntVec3[] { loc, loc + IntVec3.North, loc + IntVec3.South, loc + IntVec3.East, loc + IntVec3.West };
+
+            if (!locs.InBoundAndStandable(map))
+            {
+                return false;
+            }
+
+            if (!map.roofGrid.AllowFlyThrough(loc))
+            {
+                if (DebugViewSettings.drawDestSearch)
                 {
-                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CustomRoofUtility), nameof(CustomRoofUtility.AllowFlyThrough), new Type[] { typeof(RoofGrid), typeof(IntVec3) }));
-                    yield return new CodeInstruction(OpCodes.Brfalse, codes[++i].operand);
-                    patched = true;
+                    map.debugDrawer.FlashCell(loc, text: "phys");
                 }
-                else
+
+                return false;
+            }
+
+            if (Current.ProgramState is ProgramState.Playing && locs.Fogged(map))
+            {
+                return false;
+            }
+
+            for (int i = 0; i < locs.Length; i++)
+            {
+                var things = locs[i].GetThingList(map);
+
+                for (int j = things.Count - 1; j >= 0; j--)
                 {
-                    yield return code;
+                    var thing = things[j];
+
+                    if (thing is IActiveTransporter || thing is Skyfaller)
+                    {
+                        return false;
+                    }
+
+                    if (!(thing is Building building) || !building.IsClearableFreeBuilding)
+                    {
+                        if (thing.def.IsEdifice()
+                            || thing.def.preventSkyfallersLandingOn
+                            || (thing.def.category != ThingCategory.Plant && GenSpawn.SpawningWipes(ThingDefOf.ActiveDropPod, thing.def)))
+                        {
+                            return false;
+                        }
+                    }
                 }
             }
 
-            SMR.DebugLabel.TranspileMessage(patched, typeof(HarmonyPatches), nameof(HarmonyPatches.CustomTradeDropSpot));
+            return true;
+        }
+
+        private static bool InBoundAndStandable(this IntVec3[] locs, Map map)
+        {
+            for (int i = 0; i < locs.Length; i++)
+            {
+                var loc = locs[i];
+
+                if (!loc.InBounds(map) || !loc.Standable(map))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private static bool Fogged(this IntVec3[] locs, Map map)
+        {
+            for (int i = 0; i < locs.Length; i++)
+            {
+                var loc = locs[i];
+
+                if (loc.Fogged(map))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
